@@ -1,0 +1,132 @@
+.assets-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: var(--spacing-4);
+  padding-bottom: var(--spacing-3);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.assets-header h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
+}
+
+.assets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--spacing-4);
+}
+
+.asset-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: var(--spacing-3);
+  position: relative;
+  transition: all var(--transition-normal);
+}
+
+.asset-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.asset-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.asset-icon-box.bank_account { background-color: var(--color-primary-light); color: var(--color-primary); }
+.asset-icon-box.real_estate { background-color: #F0FDF4; color: #16A34A; }
+.asset-icon-box.insurance { background-color: #FDF2F8; color: #DB2777; }
+.asset-icon-box.investment { background-color: #FAF5FF; color: #9333EA; }
+
+.asset-content {
+  flex: 1;
+}
+
+.asset-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 4px;
+}
+
+.asset-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.asset-tag {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  background-color: var(--color-bg-soft);
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.asset-description {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.asset-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.asset-price {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.asset-row-actions {
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.asset-card:hover .asset-row-actions {
+  opacity: 1;
+}
+
+.delete-btn {
+  color: var(--color-text-muted);
+}
+
+.delete-btn:hover {
+  color: var(--color-error);
+}
+
+/* Empty State */
+.loading-view, .empty-view {
+  padding: var(--spacing-8) var(--spacing-4);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.empty-view-icon {
+  color: var(--color-text-muted);
+  opacity: 0.5;
+  margin-bottom: 4px;
+}

@@ -1,0 +1,130 @@
+.nominees-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: var(--spacing-4);
+  padding-bottom: var(--spacing-3);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.nominees-header h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
+}
+
+.nominees-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: var(--spacing-4);
+}
+
+.nominee-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: var(--spacing-4);
+  position: relative;
+  transition: all var(--transition-normal);
+}
+
+.nominee-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.nominee-avatar-box {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.nominee-card-body {
+  flex: 1;
+}
+
+.nominee-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.nominee-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.status-tag {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status-tag.active { background-color: var(--color-success-bg); color: var(--color-success); }
+.status-tag.pending { background-color: var(--color-warning-bg); color: var(--color-warning); }
+
+.nominee-relation {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.nominee-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.contact-icon {
+  color: var(--color-text-muted);
+}
+
+.nominee-card-actions {
+  display: flex;
+  gap: 4px;
+  position: absolute;
+  top: var(--spacing-3);
+  right: var(--spacing-3);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.nominee-card:hover .nominee-card-actions {
+  opacity: 1;
+}
+
+/* Modal specificlly */
+.input-flex-row {
+  display: flex;
+  gap: var(--spacing-3);
+}
+
+.placeholder-text {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin-top: 4px;
+}

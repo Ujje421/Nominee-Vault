@@ -1,0 +1,21 @@
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 260px; /* Width of sidebar */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-content {
+  flex: 1;
+  padding: var(--spacing-4) var(--spacing-5);
+  max-width: 1400px; /* Wider for dashboard charts/grids */
+  margin: 0 auto;
+  width: 100%;
+}

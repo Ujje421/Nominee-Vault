@@ -1,0 +1,69 @@
+npx : Loaded Prisma 
+config from 
+prisma.config.ts.
+At line:1 char:1
++ npx prisma validate 
+2>&1 | Out-File 
+-FilePath 
+prisma_error.txt 
+-Encod ...
++ ~~~~~~~~~~~~~~~~~~~~~
+~~~
+    + CategoryInfo     
+         : 
+NotSpecified: (Loa    
+ded Prisma c...isma.co 
+   nfig.ts.:String) 
+[], R    emoteException
+    + 
+FullyQualifiedErrorI   
+ d : NativeCommandError
+ 
+
+Prisma schema loaded 
+from 
+prisma\schema.prisma.
+
+Error: Prisma schema 
+validation - (validate 
+wasm)
+Error code: P1012
+[1;91merror[0m: 
+[1mThe datasource 
+property `url` is no 
+longer supported in 
+schema files. Move 
+connection URLs for 
+Migrate to 
+`prisma.config.ts` and 
+pass either `adapter` 
+for a direct database 
+connection or 
+`accelerateUrl` for 
+Accelerate to the 
+`PrismaClient` 
+constructor. See https:
+//pris.ly/d/config-data
+source and https://pris
+.ly/d/prisma7-client-co
+nfig[0m
+  [1;94m-->[0m  [4mp
+risma\schema.prisma:7[
+0m
+[1;94m   | [0m
+[1;94m 6 | [0m  
+provider = "postgresql"
+[1;94m 7 | [0m  
+[1;91murl      = "post
+gresql://vault_user:vau
+lt_password@localhost:5
+432/nominee_vault?schem
+a=public"[0m
+[1;94m   | [0m
+
+Validation Error 
+Count: 1
+[Context: validate]
+
+Prisma CLI Version : 
+7.5.0

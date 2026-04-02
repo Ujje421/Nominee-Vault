@@ -1,0 +1,94 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id                   String            @id @default(cuid())
+  email                String            @unique
+  passwordHash         String
+  name                 String?
+  createdAt            DateTime          @default(now())
+  updatedAt            DateTime          @updatedAt
+  lastVerificationDate DateTime          @default(now()) // For Alive Verification
+  verificationStatus   String            @default("ACTIVE") // ACTIVE, PENDING_VERIFICATION, ESCALATED, DECEASED
+
+  nominees             Nominee[]
+  documents            Document[]
+  assets               Asset[]
+  verificationLogs     VerificationLog[]
+}
+
+model Nominee {
+  id           String   @id @default(cuid())
+  userId       String
+  name         String
+  email        String
+  phone        String
+  relationship String
+  role         String   @default("VIEWER") // VIEWER, EXECUTOR
+  status       String   @default("PENDING") // PENDING, VERIFIED, ACTIVE
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  claims       Claim[]
+}
+
+model Asset {
+  id          String   @id @default(cuid())
+  userId      String
+  type        String   // BANK_ACCOUNT, REAL_ESTATE, INSURANCE, INVESTMENT
+  name        String
+  description String?
+  value       String?  // Optional estimated value or account number ending
+  metadata    String?  // JSON string for specific asset details
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Document {
+  id               String   @id @default(cuid())
+  userId           String
+  name             String
+  type             String   // IDENTITY, LEGAL, FINANCIAL, MEDICAL
+  category         String   // e.g., "Bank Statement", "Will", "Aadhar"
+  driveFileId      String?  // Google Drive ID
+  backupPath       String?  // Local fallback/backup path
+  encryptedKeyPart String?  // Part of the split encryption key
+  mimeType         String
+  size             Int
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationLog {
+  id           String   @id @default(cuid())
+  userId       String
+  status       String   // SUCCESS, FAILED, MISSED
+  verifiedAt   DateTime @default(now())
+  method       String   // OTP, SELFIE, ADMIN
+  notes        String?
+  
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Claim {
+  id                   String   @id @default(cuid())
+  nomineeId            String
+  status               String   @default("PENDING") // PENDING, APPROVED, REJECTED
+  deathCertificatePath String?
+  identityProofPath    String?
+  submittedAt          DateTime @default(now())
+  reviewedAt           DateTime?
+  adminNotes           String?
+
+  nominee              Nominee  @relation(fields: [nomineeId], references: [id], onDelete: Cascade)
+}
