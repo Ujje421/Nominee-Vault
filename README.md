@@ -3,6 +3,8 @@
 **Nominee Vault** (VaultLife) is a premium, high-security digital life vault designed to ensure that your digital assets, documents, and legacy reach your loved ones safely. It combines proactive presence verification with a secure nominee management system to automate the transfer of access when it matters most.
 
 ---
+<img width="1892" height="889" alt="image" src="https://github.com/user-attachments/assets/7b42334f-7396-4799-a1f8-0ca29883b262" />
+
 
 ## 🌟 Key Features
 
